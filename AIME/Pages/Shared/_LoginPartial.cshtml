@@ -1,0 +1,42 @@
+﻿@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+@{
+    User user = null;
+ 
+    IList<string> roles = new List<string>();
+
+    if (SignInManager.IsSignedIn(User))
+    {
+        user = await UserManager.GetUserAsync(User);
+        if (user != null)
+        {
+            roles = await UserManager.GetRolesAsync(user);
+        }
+    }
+}
+
+@if (user != null )
+{
+    <div class="detail">
+
+  
+        <h4 style="margin-bottom:0px !important">     @user.FirstName @user.LastName </h4>
+        <small>@user.Email</small>
+        <h5>  @string.Join(", ", roles) </h5>
+        <button type="button" class="btn btn-danger" onclick="window.location.href = '/Account/SignOut'">Sign Out</button>
+    </div>
+
+
+
+}
+else
+{
+     <div class="detail">
+         <br />
+        <button type="button" class="btn btn-primary" onclick="window.location.href = '/Account/SignIn'">Sign In</button>
+
+    </div>
+    
+     
+}

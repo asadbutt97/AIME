@@ -1,0 +1,79 @@
+﻿@page
+@model SignUpModel
+@{
+    Layout = "_AccountLayout";
+    ViewData["Title"] = "AIME :: Sign Up";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <form class="card auth_form" method="post">
+                <div class="header">
+                    <img class="logo" src="~/assets/images/logo.png" alt="">
+                    <h5>Sign Up</h5>
+                    <span>Register a new membership</span>
+                </div>
+                <div class="body">
+                    <div class="input-group mb-3">
+                   
+                        <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                        </div>
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="input-group mb-3">
+                       <input asp-for="Input.LastName" class="form-control" placeholder="Last Name"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                        </div>
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.EmailAdress" class="form-control" placeholder="Email Address" />
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="zmdi zmdi-email"></i></span>
+                        </div>
+                        <span asp-validation-for="Input.EmailAdress" class="text-danger"></span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                        </div>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    @* <div class="checkbox">
+                        <input id="remember_me" type="checkbox">
+                        <label for="remember_me">I read and agree to the <a href="javascript:void(0);">terms of usage</a></label>
+                    </div> *@
+                    <button type="submit" class="btn btn-primary btn-block waves-effect waves-light">Sign Up</button>
+          
+                    <div class="signin_with mt-3">
+                        <a class="link" href="/Account/SignIn">You already have a membership?</a>
+                    
+
+                    </div>
+                </div>
+            </form>
+            <div class="copyright text-center">
+              @*   &copy;
+                <script>document.write(new Date().getFullYear())</script>,
+                <span><a href="templatespoint.net">Templates Point</a></span> *@
+            </div>
+        </div>
+        <div class="col-lg-8 col-sm-12">
+            <div class="card">
+                <img src="~/assets/images/signup.svg" alt="Sign Up" />
+            </div>
+        </div>
+        <div>
+            
+        </div>
+
+    </div>
+</div>
+
+
+

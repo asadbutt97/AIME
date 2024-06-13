@@ -1,0 +1,315 @@
+﻿@page
+@model AIME.Pages.Documents.IndexModel
+@{
+    Layout = "_TableLayout";
+
+    ViewData["menu"] = "Documents";
+    ViewData["title"] = "Documents";
+}
+
+@if (User.Identity.IsAuthenticated == true)
+{
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Documents Page</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> AIME</a></li>
+                            <li class="breadcrumb-item active">Pages</li>
+                            <li class="breadcrumb-item active">Documents Page</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Documents</strong> List </h2>
+                                <button class="btn btn-primary waves-effect m-r-20" data-toggle="modal" data-target="#uploadPopUp">Upload</button>
+                                @*  <ul class="header-dropdown">
+                            <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right slideUp">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                            </li>
+                            <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                            </li>
+                            </ul> *@
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                        <thead>
+                                            <tr>
+                                                <th>File Name</th>
+                                                <th>Status</th>
+                                                <th>Type</th>
+                                                <th>Company</th>
+                                                <th>Doc ID</th>
+                                                <th>Mapping</th>
+                                                <th>Upload DateTime</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>File Name</th>
+                                                <th>Status</th>
+                                                <th>Type</th>
+                                                <th>Company</th>
+                                                <th>Doc ID</th>
+                                                <th>Mapping</th>
+                                                <th>Upload DateTime</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                               <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                               <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                               <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                               <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                               <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test8</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test7</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc12345</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Test2</td>
+                                                <td>Uploaded</td>
+                                                <td>File</td>
+                                                <td>ABC</td>
+                                                <td>Doc1234</td>
+                                                <td>Mapping</td>
+                                                <td>@DateTime.Now.ToString()</td>
+                                                <td><a href="#" class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                         
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal fade" id="uploadPopUp" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="title" id="largeModalLabel">Upload File</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row clearfix">
+                        <div class="col-lg-7">
+                          <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <p> <b>Company</b> </p>
+                                    <select class="form-control show-tick ms select2" data-placeholder="Select">
+                                        <option></option>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+                          </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <p> <b>Document Type</b> </p>
+                                    <select class="form-control show-tick ms select2" data-placeholder="Select">
+                                        <option></option>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <p> <b>Template Version</b> </p>
+                                    <select class="form-control show-tick ms select2" data-placeholder="Select">
+                                        <option></option>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="card">
+                                            <div class="header">
+                                                <h2><strong>File</strong> Upload</h2>
+                                            </div>
+                                            <div class="body">
+                                                <p>try to upload png or pdf only</p>
+                                                <input type="file" class="dropify" data-allowed-file-extensions="pdf png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="row">
+                                <div class="col-lg-12">
+                           
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-round waves-effect">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+  
+
+
+}
+else
+{
+
+    <section class="content">
+        <div class="body_scroll">
+         
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                      
+                            <div class="body">
+                                <h2>Sign in to Continue</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+}
